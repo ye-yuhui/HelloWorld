@@ -1,5 +1,3 @@
-
-
 #紫为云行人SDK 文档
 ---
 ### 修订历史
@@ -28,16 +26,15 @@
 ---
 
 ### 支持平台
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行人SDK目前支持Linux平台GPU版本。SDK提供标准的C++接口，**最低支持C++11**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行人SDK目前支持Linux平台GPU版本。SDK提供标准的C\++接口，**最低支持C++11**
 
 ###推荐硬件配置
 
-|--------------|---------------------------|
-| 系统版本     | Centos7 64bit             |
-| 开发环境     | GCC 4.8.5                 |
-| CPU          | 主频 3.00GHz              |
-| 内存         | 8G                        |
-| GPU          | NVIDIA GPU cuda8.0        |
+* 系统版本:      Centos7 64bit             
+* 开发环境:      GCC 4.8.5                 
+* CPU:           主频 3.00GHz              
+* 内存:          8G                        
+* GPU:           NVIDIA GPU cuda8.0        
 
  
 
@@ -52,32 +49,24 @@
 | 行人图片比对（1:1）| 比对输入行人图片的相似度|
 | 行人特征比对（1:1）| 比对比对输入行人特征的相似度|
 
-### SDK目录结构
-
-|--- libVisionPedestrianSDK.so&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//sdk so库 
-|--- build_version.xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//依赖版本信息   
-|--- include
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- packet
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--- HwnPacket.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//缓存结构
-|&nbsp;&nbsp;&nbsp;&nbsp;|---IPedAttrbuteDetector.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人属性检测接口定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- IPedDetector.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人检测接口定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- IPedFeature.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人特征接口定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- IPedRecongnition.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人识别接口定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- Pedestrian.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//全局接口定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- PedImage.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人图片结构定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- PedPersonAttribute.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人属性定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|--- PedResult.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//行人检测结果结构定义
-|&nbsp;&nbsp;&nbsp;&nbsp;|---Demo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//SDK使用示例
+### SDK目录说明
+  | **目录(文件)** | **描述**                                                                            |
+|--------------|---------------------------------------------------------------------------------------------|
+|    Include  | SDK头文件|
+|   Lib   | SDK so库|
+| Demo   |  SDK使用示例|
+| build_version.xml| 依赖版本信息|
 
 
-###SDK使用步骤
+
+### SDK使用步骤
 * 1.在官方网站下载行人C++ SDK压缩包;
 
 * 2.引用 SDK中include下的头文件,注意aip命名空间下的类和方法;
 
 * 3.编译工程时需添加 C++11 支持 (gcc/clang 添加编译参数 -std=c++11), 添加build_version.xml依赖第三方库需要的链接参数.
 
-###API使用说明
+### API使用说明
 * SDK 中包括 行人检测、行人属性检测、行人特征三个接口；
 
 * 接口的使用步骤包括：创建接口实例->设置算法模型加载路径->初始化接口实例 -> 算法执行
@@ -1073,7 +1062,7 @@ Ped_Carrying_Other | 其他
 **定义**
 ```c
 typedef enum PersonAccessory {
-    Ped_Accessory_UNKNOWN,                      
+    Ped_Accessory_UNKNOWN,           
     Ped_Accessory_Hat = 1,                      
     Ped_Accessory_Muffler = 2,                  
     Ped_Accessory_Nothing = 4,                  
@@ -1178,22 +1167,22 @@ Ped_Hair_Short | 短发
 
 ### <span id="PersonUpClothing">行人属性-上身服饰</span> 
 **定义**
-```c
-typedef enum PersonUpClothing {
-    Ped_Up_Cloth_Unknown
-    Ped_Up_ShortSleeve = 1,         
-    Ped_Up_Jacket = 2,              
-    Ped_Up_Logo = 4,                
-    Ped_Up_Plaid = 8,               
-    Ped_Up_ThinStripes = 16,        
-    Ped_Up_Tshirt = 32,             
-    Ped_Up_Other = 64,              
-    Ped_Up_VNeck = 128,             
-    Ped_Up_Casual = 1 << 8,         
-    Ped_Up_Formal = 1 << 9,         
-} PersonUpClothing;
-
+```c++
+  typedef enum PersonUpClothing {
+      Ped_Up_Cloth_Unknown
+      Ped_Up_ShortSleeve = 1,         
+      Ped_Up_Jacket = 2,              
+      Ped_Up_Logo = 4,                
+      Ped_Up_Plaid = 8,               
+      Ped_Up_ThinStripes = 16,        
+      Ped_Up_Tshirt = 32,             
+      Ped_Up_Other = 64,              
+      Ped_Up_VNeck = 128,             
+      Ped_Up_Casual = 1 << 8,         
+      Ped_Up_Formal = 1 << 9,         
+  } PersonUpClothing; 
 ```
+
 **字段说明**
 
 字段                         | 描述                                
@@ -1245,3 +1234,4 @@ RET_NOT_FOUND_GPU            | 没有找到GPU
 RET_NOT_FOUND_GPU_DEVICE            | 没有找到GPU设备
 
 ---
+
